@@ -4,6 +4,23 @@
 #include "boards.h"
 #include "macros.h"
 
+// =====================
+//This is from the previous owner with m503 for prusa 
+//echo:Steps per unit:
+//echo:  M92 X84.60 Y84.60 Z2560.00 E667.00
+//echo:Maximum feedrates (mm/s):
+//echo:  M203 X500.00 Y500.00 Z5.00 E25.00
+//echo:Maximum Acceleration (mm/s2):
+//echo:  M201 X9000 Y9000 Z100 E10000
+//echo:Acceleration: S=acceleration, T=retract acceleration
+//echo:  M204 S3000.00 T3000.00
+//echo:Advanced variables: S=Min feedrate (mm/s), T=Min travel feedrate (mm/s), B=minimum segment time (ms), X=maximum XY jerk (mm/s),  Z=maximum Z jerk (mm/s),  E=maximum E jerk (mm/s)
+//echo:  M205 S0.00 T0.00 B20000 X20.00 Z0.40 E5.00
+//echo:Home offset (mm):
+//echo:  M206 X0.00 Y0.00 Z0.00
+
+// =====================
+
 //===========================================================================
 //============================= Getting Started =============================
 //===========================================================================
@@ -587,9 +604,9 @@ const bool Z_MIN_PROBE_ENDSTOP_INVERTING = false; // set to true to invert the l
 
 // default settings
 
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {80,80,4000,500}  // default steps per unit for Ultimaker
-#define DEFAULT_MAX_FEEDRATE          {300, 300, 5, 25}    // (mm/sec)
-#define DEFAULT_MAX_ACCELERATION      {3000,3000,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {84.60, 84.60, 2560.00,667} //{80,80,4000,500}  // default steps per unit for Ultimaker echo:  M92 X84.60 Y84.60 Z2560.00 E667.00
+#define DEFAULT_MAX_FEEDRATE          {500, 500, 5, 25}//{300, 300, 5, 25}    // (mm/sec) //JB check this if not looking right
+#define DEFAULT_MAX_ACCELERATION      {9000, 9000, 100, 10000}//{3000,3000,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
 
 #define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration in mm/s^2 for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration in mm/s^2 for retracts
